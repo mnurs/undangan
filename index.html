@@ -238,36 +238,33 @@
     <svg class="ornament corner-tl"><use href="#corner-spray"/></svg>
     <svg class="ornament corner-br"><use href="#corner-spray"/></svg>
 
-    <p class="kicker-sm">Turut Mengundang &amp; Mendoakan</p>
+    <p class="kicker-sm">Turut Mengundang</p>
 
     <svg width="55mm" height="8mm" style="margin-bottom: 4mm;"><use href="#divider-flourish"/></svg>
 
-    <div class="invitee-grid">
-      <div class="invitee-col">
-        <p class="invitee-side">Keluarga Mempelai Wanita</p>
-        <ul class="invitee-list">
-          <li>Bpk. H. Soewarno <span class="alm">(Alm.)</span></li>
-          <li>Ibu Hj. Sumarni</li>
-          <li>Bpk. &amp; Ibu Wijaya Kusuma</li>
-          <li>Bpk. &amp; Ibu Hartono</li>
-          <li>Bpk. &amp; Ibu Lukman</li>
-        </ul>
-      </div>
-      <div class="invitee-col">
-        <p class="invitee-side">Keluarga Mempelai Pria</p>
-        <ul class="invitee-list">
-          <li>Bpk. H. Suparman <span class="alm">(Alm.)</span></li>
-          <li>Ibu Hj. Mariana</li>
-          <li>Bpk. &amp; Ibu Setiawan</li>
-          <li>Bpk. &amp; Ibu Handayani</li>
-          <li>Bpk. &amp; Ibu Pratama</li>
-        </ul>
-      </div>
-    </div>
+    <ol class="invitee-merged">
+      <li>Pak RT Atim</li>
+      <li>Pak RW Yadih</li>
+      <li>Pak RT Pepen Effendi</li>
+      <li>Keluarga Besar Bapak Nian</li>
+      <li>Keluarga Besar Bapak Syafa'at</li>
+      <li>Bpk. H. Suparman <span class="alm">(Alm.)</span></li>
+      <li>Ibu Hj. Mariana</li>
+      <li>Bpk. &amp; Ibu Setiawan</li>
+      <li>Bpk. &amp; Ibu Handayani</li>
+      <li>Bpk. &amp; Ibu Pratama</li>
+    </ol>
 
     <p class="invitee-footnote">
       Beserta seluruh sanak saudara, sahabat, dan handai taulan yang tidak dapat kami sebutkan satu per satu.
     </p>
+
+    <div class="back-quote">
+      <p class="back-quote-text">
+        &ldquo;Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang.&rdquo;
+      </p>
+      <p class="back-quote-source">QS. Ar-Rum&nbsp;:&nbsp;21</p>
+    </div>
 
     <div class="monogram-sm">S &amp; S</div>
   </article>
@@ -363,7 +360,7 @@
       <div class="event-compact">
         <h3 class="event-title-sm">Resepsi</h3>
         <p class="event-date-sm">Minggu, 06 Desember 2026</p>
-        <p class="event-time-sm">11.00 — 14.00 WIB</p>
+        <p class="event-time-sm">11.00 WIB — Selesai</p>
       </div>
     </div>
 
@@ -381,74 +378,49 @@
 
     <p class="wassalam">Wassalāmu'alaikum Wr. Wb.</p>
 
-    <!-- Sketsa denah lokasi (SVG hand-drawn style) - edit label/posisi sesuai patokan area sebenarnya -->
+    <!-- Sketsa denah lokasi (simplified — 3 label utama ≥7pt saat dicetak) -->
     <div class="map-preview" aria-label="Sketsa denah lokasi venue">
       <svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
         <!-- Background subtle wash -->
-        <rect width="400" height="130" fill="#FBEEF1" opacity="0.35"/>
+        <rect width="400" height="130" fill="#FBEEF1" opacity="0.3"/>
 
-        <!-- Road: Jl. Raya Bogor (main horizontal) -->
-        <g class="sketch-road">
-          <path d="M5,90 Q 100,88 200,92 T 395,90" fill="none" stroke="#C9A66B" stroke-width="7" stroke-linecap="round"/>
-          <path d="M5,90 Q 100,88 200,92 T 395,90" fill="none" stroke="#FAF3F0" stroke-width="1.2" stroke-dasharray="6 5"/>
+        <!-- Top labels (above icons) — font 12-13 = ~7-8pt saat dicetak -->
+        <text x="105" y="14" text-anchor="middle"
+              font-family="Inter, sans-serif" font-size="12" font-weight="500"
+              fill="#6B4F4F" letter-spacing="0.4">Pasar Cisalak</text>
+        <text x="295" y="14" text-anchor="middle"
+              font-family="Cormorant Garamond, serif" font-size="13" font-weight="600"
+              fill="#A75A66" letter-spacing="0.3">Basecamp Konsep</text>
+
+        <!-- Pasar Cisalak landmark icon -->
+        <g transform="translate(105, 35)">
+          <rect x="-15" y="-9" width="30" height="17" fill="#B8C4A8" stroke="#8B9A7A" stroke-width="1.2" rx="2.5"/>
+          <line x1="-15" y1="-2" x2="15" y2="-2" stroke="#8B9A7A" stroke-width="0.8"/>
         </g>
 
-        <!-- Branch road: north going to venue area -->
-        <g class="sketch-road">
-          <path d="M210,90 Q 215,60 225,35" fill="none" stroke="#C9A66B" stroke-width="5" stroke-linecap="round"/>
+        <!-- Venue star marker -->
+        <g transform="translate(295, 35)">
+          <circle r="20" fill="#C97B84" opacity="0.22"/>
+          <path d="M0,-14 L4,-4.6 L14,-4.3 L6,2.2 L9.3,13 L0,7.5 L-9.3,13 L-6,2.2 L-14,-4.3 L-4,-4.6 Z"
+                fill="#C97B84" stroke="#A75A66" stroke-width="1.2" stroke-linejoin="round"/>
+          <circle r="3.2" fill="#FAF3F0"/>
         </g>
 
-        <!-- Cross road near venue -->
-        <g class="sketch-road">
-          <path d="M120,35 Q 200,32 320,38" fill="none" stroke="#C9A66B" stroke-width="4" stroke-linecap="round"/>
-        </g>
+        <!-- Cross road connecting two landmarks -->
+        <path d="M105,55 L 295,55" fill="none" stroke="#C9A66B" stroke-width="5" stroke-linecap="round"/>
 
-        <!-- Road labels -->
-        <text x="35" y="108" font-family="Cormorant Garamond, serif" font-size="11" font-style="italic" fill="#6B4F4F">Jl. Raya Bogor</text>
-        <text x="270" y="108" font-family="Cormorant Garamond, serif" font-size="9" font-style="italic" fill="#6B4F4F" opacity="0.7">→ ke Cibinong</text>
-        <text x="20" y="108" font-family="Cormorant Garamond, serif" font-size="9" font-style="italic" fill="#6B4F4F" opacity="0.7">Jakarta ←</text>
-        <text x="135" y="28" font-family="Cormorant Garamond, serif" font-size="9.5" font-style="italic" fill="#6B4F4F">Jl. Cisalak Raya</text>
+        <!-- Vertical branches from cross road down to main road -->
+        <path d="M105,55 L 105,82" fill="none" stroke="#C9A66B" stroke-width="6" stroke-linecap="round"/>
+        <path d="M295,55 L 295,82" fill="none" stroke="#C9A66B" stroke-width="6" stroke-linecap="round"/>
 
-        <!-- Landmark: Pasar Cisalak -->
-        <g transform="translate(155, 38)">
-          <rect x="-8" y="-6" width="16" height="11" fill="#B8C4A8" stroke="#8B9A7A" stroke-width="0.6" rx="1"/>
-          <line x1="-8" y1="-1" x2="8" y2="-1" stroke="#8B9A7A" stroke-width="0.4"/>
-        </g>
-        <text x="155" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" fill="#6B4F4F" letter-spacing="0.5">Pasar Cisalak</text>
+        <!-- Main horizontal road: Jl. Raya Bogor -->
+        <path d="M5,85 Q 200,82 395,85" fill="none" stroke="#C9A66B" stroke-width="11" stroke-linecap="round"/>
+        <path d="M5,85 Q 200,82 395,85" fill="none" stroke="#FAF3F0" stroke-width="1.6" stroke-dasharray="10 7"/>
 
-        <!-- Landmark: Tol Cijago Exit (kiri atas) -->
-        <g transform="translate(60, 35)">
-          <path d="M-12,0 L-4,-6 L4,-6 L12,0 L4,6 L-4,6 Z" fill="#E8B4BC" stroke="#A75A66" stroke-width="0.6"/>
-          <text y="2" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#6B4F4F" font-weight="500">TOL</text>
-        </g>
-        <text x="60" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#6B4F4F" letter-spacing="0.3">Cijago Exit</text>
-
-        <!-- Venue marker (star + pin combo) -->
-        <g transform="translate(280, 35)">
-          <!-- Glow -->
-          <circle r="14" fill="#C97B84" opacity="0.18"/>
-          <!-- Star -->
-          <path d="M0,-10 L2.7,-3.3 L10,-3.1 L4.3,1.5 L6.5,9.5 L0,5 L-6.5,9.5 L-4.3,1.5 L-10,-3.1 L-2.7,-3.3 Z"
-                fill="#C97B84" stroke="#A75A66" stroke-width="0.8" stroke-linejoin="round"/>
-          <circle cx="0" cy="0" r="2" fill="#FAF3F0"/>
-        </g>
-        <text x="280" y="60" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="9.5" font-weight="500" fill="#A75A66" letter-spacing="0.4">Basecamp Konsep</text>
-        <text x="280" y="71" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="8" font-style="italic" fill="#A75A66" opacity="0.85">venue</text>
-
-        <!-- Compass (top-right corner) -->
-        <g transform="translate(375, 18)">
-          <circle r="8" fill="#FAF3F0" stroke="#C9A66B" stroke-width="0.6" opacity="0.85"/>
-          <path d="M0,-6 L2.2,2 L0,0.5 L-2.2,2 Z" fill="#C97B84"/>
-          <text y="-9" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="6" fill="#6B4F4F" font-style="italic">U</text>
-        </g>
-
-        <!-- Subtle floral accents -->
-        <g opacity="0.55">
-          <circle cx="20" cy="20" r="2" fill="#E8B4BC"/>
-          <circle cx="25" cy="25" r="1.2" fill="#C97B84"/>
-          <circle cx="380" cy="105" r="2" fill="#E8B4BC"/>
-          <circle cx="375" cy="110" r="1.2" fill="#C97B84"/>
-        </g>
+        <!-- Road label: font 14 = ~8pt saat dicetak -->
+        <text x="200" y="115" text-anchor="middle"
+              font-family="Cormorant Garamond, serif" font-size="14" font-style="italic"
+              fill="#6B4F4F">Jl. Raya Bogor</text>
       </svg>
     </div>
 

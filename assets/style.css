@@ -339,42 +339,35 @@ body {
   color: var(--rose-dark);
   margin: 0 0 3mm;
 }
-.back .invitee-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5mm;
+.back .invitee-merged {
+  column-count: 2;
+  column-gap: 6mm;
+  column-rule: 0.5px solid rgba(232, 180, 188, 0.5);
   width: 100%;
-  max-width: 88mm;
+  max-width: 92mm;
   margin: 0 auto 4mm;
-}
-.back .invitee-col {
-  text-align: center;
-}
-.back .invitee-side {
-  font-family: var(--ff-sans);
-  font-size: 7.5pt;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--rose-dark);
-  margin: 0 0 2mm;
-  padding-bottom: 1.5mm;
-  border-bottom: 1px solid var(--rose-soft);
-  opacity: .85;
-}
-.back .invitee-list {
-  list-style: none;
-  margin: 0;
   padding: 0;
+  list-style-position: inside;
   font-family: var(--ff-serif);
   font-size: 9pt;
-  line-height: 1.55;
+  line-height: 1.5;
   color: var(--brown);
+  text-align: left;
 }
-.back .invitee-list li {
-  margin: 0;
-  padding: 0;
+.back .invitee-merged li {
+  margin: 0 0 0.5mm;
+  padding-left: 1mm;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
 }
-.back .invitee-list .alm {
+.back .invitee-merged li::marker {
+  color: var(--rose-dark);
+  font-family: var(--ff-sans);
+  font-size: 8.5pt;
+  font-weight: 500;
+}
+.back .invitee-merged .alm {
   font-family: var(--ff-sans);
   font-size: 7pt;
   font-style: italic;
@@ -392,6 +385,42 @@ body {
   margin: 2mm auto 3mm;
   opacity: .85;
 }
+.back .back-quote {
+  margin: 2mm auto 3mm;
+  max-width: 86mm;
+  text-align: center;
+  position: relative;
+}
+.back .back-quote::before,
+.back .back-quote::after {
+  content: "";
+  display: block;
+  width: 28mm;
+  height: 1px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, var(--rose-soft) 50%, transparent);
+}
+.back .back-quote::before { margin-bottom: 2.5mm; }
+.back .back-quote::after  { margin-top: 2.5mm; }
+.back .back-quote-text {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-size: 8.5pt;
+  line-height: 1.5;
+  color: var(--brown);
+  margin: 0 0 1.5mm;
+  opacity: .92;
+}
+.back .back-quote-source {
+  font-family: var(--ff-sans);
+  font-size: 7pt;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--rose-dark);
+  margin: 0;
+  opacity: .85;
+}
+
 .back .monogram-sm {
   font-family: var(--ff-script);
   font-size: 26pt;
