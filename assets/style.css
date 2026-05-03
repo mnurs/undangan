@@ -1,0 +1,639 @@
+/* =============================================================
+   Undangan Pernikahan — Pink Floral Watercolor (Half-Fold A5)
+   Output: A5 landscape (210 x 148 mm), 2 sheets, 4 panels A6
+   ============================================================= */
+
+:root {
+  --blush:      #F8E1E7;
+  --blush-2:    #FBEEF1;
+  --rose-soft:  #E8B4BC;
+  --rose-mid:   #D89AA3;
+  --rose-deep:  #C97B84;
+  --rose-dark:  #A75A66;
+  --cream:      #FAF3F0;
+  --cream-2:    #F4E8E2;
+  --sage:       #B8C4A8;
+  --sage-deep:  #8B9A7A;
+  --brown:      #6B4F4F;
+  --brown-deep: #4A3838;
+  --gold:       #C9A66B;
+  --gold-soft:  #E0C896;
+
+  --ff-serif:  'Cormorant Garamond', 'Times New Roman', serif;
+  --ff-script: 'Great Vibes', 'Brush Script MT', cursive;
+  --ff-sans:   'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ---------- Print page setup ---------- */
+@page {
+  size: 210mm 148mm;   /* A5 landscape */
+  margin: 0;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--ff-sans);
+  color: var(--brown);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ---------- Screen preview wrapper ---------- */
+@media screen {
+  body {
+    background:
+      radial-gradient(circle at 20% 10%, #f5d8de 0%, transparent 40%),
+      radial-gradient(circle at 80% 90%, #e8c4cc 0%, transparent 45%),
+      #efd9de;
+    min-height: 100vh;
+    padding: 32px 16px 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+  .screen-only {
+    text-align: center;
+    color: var(--brown);
+    font-family: var(--ff-serif);
+    margin-bottom: 8px;
+  }
+  .screen-only h2 {
+    font-weight: 400;
+    letter-spacing: 4px;
+    font-size: 14pt;
+    margin: 0 0 6px;
+    text-transform: uppercase;
+  }
+  .screen-only p {
+    font-family: var(--ff-sans);
+    font-size: 10pt;
+    margin: 0;
+    opacity: .7;
+  }
+  .sheet-label {
+    font-family: var(--ff-sans);
+    font-size: 9pt;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rose-dark);
+    margin-bottom: -14px;
+    opacity: .7;
+  }
+  .sheet {
+    box-shadow:
+      0 1px 2px rgba(107, 79, 79, .08),
+      0 12px 40px rgba(107, 79, 79, .18);
+    border-radius: 2px;
+  }
+  .fold-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    border-left: 1px dashed rgba(201, 123, 132, .35);
+    pointer-events: none;
+    z-index: 5;
+  }
+}
+
+/* ---------- Print: hide screen helpers, force page break ---------- */
+@media print {
+  body {
+    background: white;
+    padding: 0;
+    display: block;
+  }
+  .screen-only,
+  .sheet-label,
+  .fold-line { display: none !important; }
+  .sheet {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    page-break-after: always;
+    break-after: page;
+  }
+  .sheet:last-of-type {
+    page-break-after: auto;
+    break-after: auto;
+  }
+}
+
+/* ---------- Sheet (A5 landscape, 2 panels side by side) ---------- */
+.sheet {
+  position: relative;
+  width: 210mm;
+  height: 148mm;
+  display: grid;
+  grid-template-columns: 105mm 105mm;
+  background: var(--cream);
+  overflow: hidden;
+}
+
+.panel {
+  position: relative;
+  width: 105mm;
+  height: 148mm;
+  padding: 11mm 10mm;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--cream);
+}
+
+/* Subtle paper-grain noise via stacked gradients (no external image) */
+.panel::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 0% 0%,   rgba(232, 180, 188, .35) 0%, transparent 55%),
+    radial-gradient(ellipse at 100% 100%, rgba(232, 180, 188, .28) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 50%,  rgba(250, 243, 240, .85) 0%, var(--cream) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.panel > * { position: relative; z-index: 1; }
+
+/* ---------- Watercolor blob backgrounds (positioned ornaments) ---------- */
+.wc-blob {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+.wc-blob.tl { top: -30mm; left: -30mm; width: 90mm; height: 90mm; }
+.wc-blob.br { bottom: -30mm; right: -30mm; width: 90mm; height: 90mm; }
+.wc-blob.tr { top: -25mm; right: -25mm; width: 80mm; height: 80mm; }
+.wc-blob.bl { bottom: -25mm; left: -25mm; width: 80mm; height: 80mm; }
+.wc-blob.center-soft { top: 50%; left: 50%; width: 130mm; height: 130mm; transform: translate(-50%, -50%); opacity: .35; }
+
+/* ---------- Floral ornaments ---------- */
+.ornament {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+.ornament.top-center    { top: 6mm;    left: 50%; transform: translateX(-50%); width: 60mm; }
+.ornament.bottom-center { bottom: 6mm; left: 50%; transform: translateX(-50%); width: 60mm; transform: translateX(-50%) rotate(180deg); }
+.ornament.corner-tl     { top: -7mm;  left: -7mm;  width: 26mm; }
+.ornament.corner-tr     { top: -7mm;  right: -7mm; width: 26mm; transform: scaleX(-1); }
+.ornament.corner-bl     { bottom: -7mm; left: -7mm;  width: 26mm; transform: scaleY(-1); }
+.ornament.corner-br     { bottom: -7mm; right: -7mm; width: 26mm; transform: scale(-1, -1); }
+
+/* ---------- COVER panel ---------- */
+.panel.cover {
+  background: var(--cream);
+}
+.cover .kicker {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 11pt;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--rose-dark);
+  margin: 0 0 4mm;
+}
+.cover .couple {
+  font-family: var(--ff-script);
+  font-weight: 400;
+  font-size: 48pt;
+  line-height: .95;
+  color: var(--rose-deep);
+  margin: 1mm 0 2mm;
+  letter-spacing: 1px;
+}
+.cover .couple .amp {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-size: 36pt;
+  color: var(--gold);
+  vertical-align: middle;
+  padding: 0 4px;
+}
+.cover .divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4mm;
+  margin: 2mm 0 3mm;
+  color: var(--gold);
+}
+.cover .divider::before,
+.cover .divider::after {
+  content: "";
+  width: 18mm;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
+}
+.cover .divider .dot {
+  width: 5px; height: 5px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: inline-block;
+}
+.cover .date-numeric {
+  font-family: var(--ff-serif);
+  font-weight: 500;
+  font-size: 16pt;
+  letter-spacing: 8px;
+  color: var(--brown);
+  margin: 0;
+}
+.cover .save-the-date {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-size: 10pt;
+  color: var(--rose-dark);
+  letter-spacing: 2px;
+  margin: 3mm 0 0;
+  text-transform: uppercase;
+}
+
+/* Recipient box ("Kepada Yth.") on Cover */
+.cover .recipient-box {
+  margin: 5mm auto 0;
+  padding: 3mm 4mm 3.5mm;
+  width: 70mm;
+  max-width: 80%;
+  border-top: 0.6px solid var(--gold);
+  border-bottom: 0.6px solid var(--gold);
+  position: relative;
+  text-align: center;
+}
+.cover .recipient-box::before,
+.cover .recipient-box::after {
+  content: "";
+  position: absolute;
+  width: 4mm;
+  height: 4mm;
+  border: 0.6px solid var(--gold);
+  pointer-events: none;
+}
+.cover .recipient-box::before {
+  top: -2mm; left: -2mm;
+  border-right: none;
+  border-bottom: none;
+}
+.cover .recipient-box::after {
+  bottom: -2mm; right: -2mm;
+  border-left: none;
+  border-top: none;
+}
+.cover .recipient-label {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-size: 10pt;
+  letter-spacing: 1.5px;
+  color: var(--rose-dark);
+  margin: 0 0 2mm;
+}
+.cover .recipient-line {
+  width: 100%;
+  height: 7mm;
+  border-bottom: 0.7px solid var(--rose-soft);
+  margin: 0 0 1.5mm;
+}
+.cover .recipient-honorific {
+  font-family: var(--ff-sans);
+  font-style: italic;
+  font-size: 7pt;
+  letter-spacing: 1.2px;
+  color: var(--brown);
+  margin: 0;
+  opacity: .75;
+}
+.cover .recipient-place {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-size: 9pt;
+  letter-spacing: 1px;
+  color: var(--rose-dark);
+  margin: 2mm 0 0;
+}
+
+/* ---------- BACK panel — Turut Mengundang ---------- */
+.panel.back {
+  background: var(--cream);
+  justify-content: flex-start;
+  padding-top: 12mm;
+  padding-bottom: 10mm;
+}
+.back .kicker-sm {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 12pt;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rose-dark);
+  margin: 0 0 3mm;
+}
+.back .invitee-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5mm;
+  width: 100%;
+  max-width: 88mm;
+  margin: 0 auto 4mm;
+}
+.back .invitee-col {
+  text-align: center;
+}
+.back .invitee-side {
+  font-family: var(--ff-sans);
+  font-size: 7.5pt;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--rose-dark);
+  margin: 0 0 2mm;
+  padding-bottom: 1.5mm;
+  border-bottom: 1px solid var(--rose-soft);
+  opacity: .85;
+}
+.back .invitee-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--ff-serif);
+  font-size: 9pt;
+  line-height: 1.55;
+  color: var(--brown);
+}
+.back .invitee-list li {
+  margin: 0;
+  padding: 0;
+}
+.back .invitee-list .alm {
+  font-family: var(--ff-sans);
+  font-size: 7pt;
+  font-style: italic;
+  color: var(--rose-dark);
+  letter-spacing: .5px;
+  opacity: .75;
+}
+.back .invitee-footnote {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-size: 8.5pt;
+  line-height: 1.45;
+  color: var(--brown);
+  max-width: 82mm;
+  margin: 2mm auto 3mm;
+  opacity: .85;
+}
+.back .monogram-sm {
+  font-family: var(--ff-script);
+  font-size: 26pt;
+  color: var(--rose-deep);
+  margin: 0;
+  line-height: 1;
+}
+
+/* ---------- INSIDE-LEFT panel (greeting + names) ---------- */
+.panel.inside-left {
+  justify-content: flex-start;
+  padding-top: 14mm;
+  padding-bottom: 12mm;
+}
+.inside-left .bismillah {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-size: 12pt;
+  color: var(--rose-deep);
+  margin: 0 0 2mm;
+  letter-spacing: 1px;
+}
+.inside-left .intro {
+  font-family: var(--ff-serif);
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: var(--brown);
+  max-width: 80mm;
+  margin: 0 auto 6mm;
+}
+.inside-left .person {
+  margin: 3mm 0;
+}
+.inside-left .person .name {
+  font-family: var(--ff-script);
+  font-size: 28pt;
+  color: var(--rose-deep);
+  line-height: 1;
+  margin: 0 0 1mm;
+}
+.inside-left .person .full {
+  font-family: var(--ff-serif);
+  font-size: 10pt;
+  color: var(--brown);
+  margin: 1mm 0 1.5mm;
+  font-style: italic;
+}
+.inside-left .person .parents-label {
+  font-family: var(--ff-sans);
+  font-size: 7.5pt;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--rose-dark);
+  margin: 0 0 0.5mm;
+  opacity: .85;
+}
+.inside-left .person .parents {
+  font-family: var(--ff-serif);
+  font-size: 9pt;
+  color: var(--brown);
+  margin: 0;
+  line-height: 1.35;
+}
+.inside-left .person .parents .alm {
+  font-family: var(--ff-sans);
+  font-size: 7pt;
+  font-style: italic;
+  color: var(--rose-dark);
+  letter-spacing: .5px;
+  opacity: .75;
+}
+.inside-left .ampersand {
+  font-family: var(--ff-script);
+  font-size: 32pt;
+  color: var(--gold);
+  line-height: 1;
+  margin: 1mm 0;
+}
+
+/* ---------- INSIDE-RIGHT panel (event details + QR Maps) ---------- */
+.panel.inside-right {
+  justify-content: flex-start;
+  padding-top: 12mm;
+  padding-bottom: 10mm;
+}
+.inside-right .invite-line {
+  font-family: var(--ff-serif);
+  font-size: 9.5pt;
+  font-style: italic;
+  color: var(--brown);
+  max-width: 80mm;
+  margin: 0 auto 4mm;
+  line-height: 1.5;
+}
+
+/* Compact dual-event grid (Akad | Resepsi side by side) */
+.inside-right .event-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4mm;
+  width: 100%;
+  max-width: 88mm;
+  margin: 0 auto 5mm;
+  position: relative;
+}
+.inside-right .event-grid::before {
+  content: "";
+  position: absolute;
+  top: 12%;
+  bottom: 12%;
+  left: 50%;
+  width: 0;
+  border-left: 1px solid var(--rose-soft);
+  opacity: .7;
+}
+.inside-right .event-compact {
+  text-align: center;
+}
+.inside-right .event-title-sm {
+  font-family: var(--ff-serif);
+  font-size: 11pt;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rose-deep);
+  margin: 0 0 2mm;
+}
+.inside-right .event-date-sm {
+  font-family: var(--ff-serif);
+  font-size: 9.5pt;
+  font-style: italic;
+  color: var(--brown);
+  margin: 0 0 1mm;
+  line-height: 1.3;
+}
+.inside-right .event-time-sm {
+  font-family: var(--ff-sans);
+  font-size: 8.5pt;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--rose-dark);
+  margin: 0;
+}
+
+/* Main venue + address (shared by Akad & Resepsi) */
+.inside-right .venue-main {
+  font-family: var(--ff-serif);
+  font-size: 13pt;
+  font-weight: 500;
+  color: var(--brown-deep);
+  margin: 1mm 0 1.5mm;
+  letter-spacing: .5px;
+}
+.inside-right .event-address-main {
+  font-family: var(--ff-sans);
+  font-size: 8.5pt;
+  color: var(--brown);
+  line-height: 1.45;
+  max-width: 80mm;
+  margin: 0 auto 4mm;
+  opacity: .9;
+}
+
+/* Soft divider between address and closing */
+.inside-right .soft-divider {
+  width: 36mm;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
+  margin: 2mm auto 3mm;
+}
+
+/* Formal closing paragraph */
+.inside-right .formal-closing {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-size: 8.8pt;
+  line-height: 1.45;
+  color: var(--brown);
+  max-width: 84mm;
+  margin: 0 auto 2.5mm;
+  opacity: .92;
+}
+
+/* Wassalam sign-off */
+.inside-right .wassalam {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-size: 9pt;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: var(--rose-dark);
+  margin: 0 0 3mm;
+}
+
+/* Sketsa denah lokasi (inline SVG, hand-drawn style) */
+.inside-right .map-preview {
+  width: 80mm;
+  height: 26mm;
+  margin: 1mm auto 3mm;
+  padding: 1mm 1.5mm;
+  border: 0.6px solid var(--rose-soft);
+  border-radius: 1.5mm;
+  overflow: hidden;
+  box-shadow: 0 1mm 2mm rgba(201, 123, 132, .12);
+  background: linear-gradient(180deg, #FBEEF1 0%, var(--cream) 100%);
+  position: relative;
+}
+.inside-right .map-preview svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* QR Code block */
+.inside-right .map-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5mm;
+  padding-top: 1mm;
+  position: relative;
+}
+.inside-right .qr-code {
+  width: 26mm;
+  height: 26mm;
+  display: block;
+  background: var(--cream);
+  padding: 1.5mm;
+  border: 1px solid var(--rose-soft);
+  border-radius: 1.5mm;
+  box-shadow: 0 1mm 3mm rgba(201, 123, 132, .15);
+}
+.inside-right .qr-caption {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-size: 8.5pt;
+  letter-spacing: 1.5px;
+  color: var(--rose-dark);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* ---------- Utility ---------- */
+.spacer-sm { height: 2mm; }
+.spacer-md { height: 4mm; }

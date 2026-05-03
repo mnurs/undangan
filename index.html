@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Pernikahan — Syaiful & Sarah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- =====================================================
+     SVG sprite library — semua ornamen terdefinisi sekali
+     dan di-reuse via <use href="#id"/> di tiap panel.
+     ===================================================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+
+    <!-- ========== Watercolor blob (background ornament) ========== -->
+    <radialGradient id="grad-pink" cx="50%" cy="50%" r="55%">
+      <stop offset="0%"   stop-color="#E8B4BC" stop-opacity="0.85"/>
+      <stop offset="40%"  stop-color="#E8B4BC" stop-opacity="0.55"/>
+      <stop offset="75%"  stop-color="#F8E1E7" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#F8E1E7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="grad-rose" cx="40%" cy="40%" r="60%">
+      <stop offset="0%"   stop-color="#D89AA3" stop-opacity="0.75"/>
+      <stop offset="55%"  stop-color="#E8B4BC" stop-opacity="0.40"/>
+      <stop offset="100%" stop-color="#F8E1E7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="grad-cream" cx="50%" cy="50%" r="60%">
+      <stop offset="0%"   stop-color="#FAF3F0" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#FAF3F0" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft-blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+
+    <symbol id="blob-pink" viewBox="0 0 200 200">
+      <g filter="url(#soft-blur)">
+        <path fill="url(#grad-pink)"
+              d="M100,12 C146,14 184,52 188,100 C192,148 152,188 104,188 C56,188 14,146 12,100 C10,52 54,10 100,12 Z"/>
+        <path fill="url(#grad-rose)" opacity=".7"
+              d="M70,40 C120,30 170,70 165,120 C160,165 100,180 60,150 C25,125 30,65 70,40 Z"/>
+      </g>
+    </symbol>
+
+    <symbol id="blob-rose" viewBox="0 0 200 200">
+      <g filter="url(#soft-blur)">
+        <path fill="url(#grad-rose)"
+              d="M100,18 C150,20 180,55 182,100 C184,145 145,180 100,182 C55,184 20,145 18,100 C16,55 50,16 100,18 Z"/>
+      </g>
+    </symbol>
+
+    <!-- ========== Peony flower (stylized rosette) ========== -->
+    <radialGradient id="peony-petal" cx="50%" cy="40%" r="60%">
+      <stop offset="0%"   stop-color="#FBEEF1"/>
+      <stop offset="55%"  stop-color="#E8B4BC"/>
+      <stop offset="100%" stop-color="#C97B84"/>
+    </radialGradient>
+    <radialGradient id="peony-center" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#E0C896"/>
+      <stop offset="100%" stop-color="#A75A66"/>
+    </radialGradient>
+
+    <symbol id="peony" viewBox="0 0 100 100">
+      <!-- outer petals (8) -->
+      <g fill="url(#peony-petal)" stroke="#A75A66" stroke-width=".4" opacity=".95">
+        <ellipse cx="50" cy="18" rx="14" ry="20"/>
+        <ellipse cx="50" cy="82" rx="14" ry="20"/>
+        <ellipse cx="18" cy="50" rx="20" ry="14"/>
+        <ellipse cx="82" cy="50" rx="20" ry="14"/>
+        <ellipse cx="27" cy="27" rx="14" ry="20" transform="rotate(-45 27 27)"/>
+        <ellipse cx="73" cy="27" rx="14" ry="20" transform="rotate(45 73 27)"/>
+        <ellipse cx="27" cy="73" rx="14" ry="20" transform="rotate(45 27 73)"/>
+        <ellipse cx="73" cy="73" rx="14" ry="20" transform="rotate(-45 73 73)"/>
+      </g>
+      <!-- inner petals (5) -->
+      <g fill="#E8B4BC" stroke="#A75A66" stroke-width=".4">
+        <ellipse cx="50" cy="32" rx="9" ry="13"/>
+        <ellipse cx="50" cy="68" rx="9" ry="13"/>
+        <ellipse cx="32" cy="50" rx="13" ry="9"/>
+        <ellipse cx="68" cy="50" rx="13" ry="9"/>
+      </g>
+      <!-- center -->
+      <circle cx="50" cy="50" r="9" fill="url(#peony-center)" stroke="#A75A66" stroke-width=".4"/>
+      <g fill="#FAF3F0" opacity=".9">
+        <circle cx="48" cy="48" r="1.4"/>
+        <circle cx="52" cy="49" r="1.4"/>
+        <circle cx="50" cy="52" r="1.4"/>
+      </g>
+    </symbol>
+
+    <!-- ========== Small bud (rosebud) ========== -->
+    <symbol id="bud" viewBox="0 0 60 60">
+      <g fill="#E8B4BC" stroke="#A75A66" stroke-width=".5">
+        <ellipse cx="30" cy="32" rx="10" ry="14"/>
+        <path d="M30,18 C24,22 24,32 30,36 C36,32 36,22 30,18 Z" fill="#D89AA3"/>
+        <path d="M30,20 C26,24 26,32 30,34 C34,32 34,24 30,20 Z" fill="#C97B84"/>
+      </g>
+      <!-- sepals -->
+      <g fill="#8B9A7A">
+        <path d="M22,42 C20,46 24,52 30,48 Z"/>
+        <path d="M38,42 C40,46 36,52 30,48 Z"/>
+      </g>
+    </symbol>
+
+    <!-- ========== Eucalyptus branch ========== -->
+    <symbol id="eucalyptus" viewBox="0 0 200 60">
+      <!-- stem -->
+      <path d="M5,30 C40,28 90,32 130,30 C160,29 180,30 195,30"
+            fill="none" stroke="#8B9A7A" stroke-width="1.2" stroke-linecap="round"/>
+      <!-- leaves alternating -->
+      <g fill="#B8C4A8" stroke="#8B9A7A" stroke-width=".4">
+        <ellipse cx="20"  cy="20" rx="8"  ry="4" transform="rotate(-25 20 20)"/>
+        <ellipse cx="35"  cy="42" rx="9"  ry="4" transform="rotate(25 35 42)"/>
+        <ellipse cx="55"  cy="18" rx="10" ry="4.5" transform="rotate(-22 55 18)"/>
+        <ellipse cx="75"  cy="44" rx="10" ry="4.5" transform="rotate(22 75 44)"/>
+        <ellipse cx="98"  cy="17" rx="11" ry="5" transform="rotate(-20 98 17)"/>
+        <ellipse cx="120" cy="45" rx="11" ry="5" transform="rotate(20 120 45)"/>
+        <ellipse cx="143" cy="18" rx="10" ry="4.5" transform="rotate(-22 143 18)"/>
+        <ellipse cx="163" cy="42" rx="9"  ry="4" transform="rotate(25 163 42)"/>
+        <ellipse cx="180" cy="22" rx="7"  ry="3.5" transform="rotate(-30 180 22)"/>
+      </g>
+      <!-- darker veins -->
+      <g fill="#8B9A7A" opacity=".5">
+        <ellipse cx="98"  cy="17" rx="6" ry="2" transform="rotate(-20 98 17)"/>
+        <ellipse cx="120" cy="45" rx="6" ry="2" transform="rotate(20 120 45)"/>
+      </g>
+    </symbol>
+
+    <!-- ========== Corner spray (peonies + buds + leaves) ========== -->
+    <symbol id="corner-spray" viewBox="0 0 160 160">
+      <!-- background watercolor wash -->
+      <g opacity=".55">
+        <circle cx="40" cy="40" r="50" fill="url(#grad-pink)" filter="url(#soft-blur)"/>
+      </g>
+      <!-- eucalyptus leaves trailing -->
+      <g fill="#B8C4A8" stroke="#8B9A7A" stroke-width=".5">
+        <ellipse cx="120" cy="20" rx="9" ry="4" transform="rotate(40 120 20)"/>
+        <ellipse cx="135" cy="40" rx="10" ry="4.5" transform="rotate(50 135 40)"/>
+        <ellipse cx="20" cy="120" rx="9" ry="4" transform="rotate(-50 20 120)"/>
+        <ellipse cx="40" cy="135" rx="10" ry="4.5" transform="rotate(-40 40 135)"/>
+        <ellipse cx="100" cy="50" rx="8" ry="3.5" transform="rotate(60 100 50)"/>
+        <ellipse cx="50" cy="100" rx="8" ry="3.5" transform="rotate(-30 50 100)"/>
+      </g>
+      <!-- main peony -->
+      <g transform="translate(20,20) scale(0.8)">
+        <use href="#peony"/>
+      </g>
+      <!-- secondary smaller peony -->
+      <g transform="translate(75,75) scale(0.5)">
+        <use href="#peony"/>
+      </g>
+      <!-- buds -->
+      <g transform="translate(85,20) scale(0.5) rotate(20)">
+        <use href="#bud"/>
+      </g>
+      <g transform="translate(15,85) scale(0.5) rotate(-30)">
+        <use href="#bud"/>
+      </g>
+      <!-- accent leaves -->
+      <g fill="#8B9A7A" opacity=".7">
+        <path d="M30,90 C40,95 50,100 60,110 C50,108 40,102 30,90 Z"/>
+        <path d="M90,30 C95,40 100,50 110,60 C108,50 102,40 90,30 Z"/>
+      </g>
+    </symbol>
+
+    <!-- ========== Top header garland ========== -->
+    <symbol id="garland" viewBox="0 0 240 80">
+      <!-- left eucalyptus -->
+      <g transform="translate(0,20) scale(0.6)">
+        <use href="#eucalyptus"/>
+      </g>
+      <!-- right eucalyptus mirrored -->
+      <g transform="translate(240,60) scale(-0.6, 0.6)">
+        <use href="#eucalyptus"/>
+      </g>
+      <!-- center peony cluster -->
+      <g transform="translate(95,15)">
+        <use href="#peony" width="50" height="50"/>
+      </g>
+      <g transform="translate(75,25) scale(0.6)">
+        <use href="#bud"/>
+      </g>
+      <g transform="translate(155,30) scale(0.55) rotate(15)">
+        <use href="#bud"/>
+      </g>
+      <!-- subtle dot accents -->
+      <g fill="#C9A66B">
+        <circle cx="60"  cy="50" r="1.2"/>
+        <circle cx="180" cy="48" r="1.2"/>
+        <circle cx="120" cy="68" r="1.5"/>
+      </g>
+    </symbol>
+
+    <!-- ========== Divider flourish ========== -->
+    <symbol id="divider-flourish" viewBox="0 0 200 30">
+      <line x1="10" y1="15" x2="80" y2="15" stroke="#C9A66B" stroke-width=".8"/>
+      <line x1="120" y1="15" x2="190" y2="15" stroke="#C9A66B" stroke-width=".8"/>
+      <g transform="translate(100,15)">
+        <circle r="3" fill="#C97B84" stroke="#A75A66" stroke-width=".4"/>
+        <circle r="1.2" fill="#FAF3F0"/>
+      </g>
+      <g fill="#B8C4A8" stroke="#8B9A7A" stroke-width=".3">
+        <ellipse cx="88" cy="15" rx="3.5" ry="1.5" transform="rotate(-20 88 15)"/>
+        <ellipse cx="112" cy="15" rx="3.5" ry="1.5" transform="rotate(20 112 15)"/>
+      </g>
+    </symbol>
+
+  </defs>
+</svg>
+
+
+<!-- =====================================================
+     Screen-only header (hidden on print)
+     ===================================================== -->
+<header class="screen-only">
+  <h2>Preview Undangan Pernikahan</h2>
+  <p>A5 Lipat 2 (folded) · 210 × 148 mm · Tekan <strong>Ctrl + P</strong> untuk cetak</p>
+</header>
+
+
+<!-- =====================================================
+     SHEET 1 — OUTER (printed on side A of paper)
+     [BACK panel] | [COVER panel]
+     ===================================================== -->
+<div class="sheet-label">Sheet 1 · Outer Side (Back · Cover)</div>
+<section class="sheet sheet-outer" aria-label="Sheet 1 outer (back and cover)">
+  <span class="fold-line" aria-hidden="true"></span>
+
+  <!-- ===== BACK PANEL — TURUT MENGUNDANG ===== -->
+  <article class="panel back" aria-label="Back panel - Turut Mengundang">
+    <svg class="wc-blob tl"><use href="#blob-pink"/></svg>
+    <svg class="wc-blob br"><use href="#blob-rose"/></svg>
+    <svg class="ornament corner-tl"><use href="#corner-spray"/></svg>
+    <svg class="ornament corner-br"><use href="#corner-spray"/></svg>
+
+    <p class="kicker-sm">Turut Mengundang &amp; Mendoakan</p>
+
+    <svg width="55mm" height="8mm" style="margin-bottom: 4mm;"><use href="#divider-flourish"/></svg>
+
+    <div class="invitee-grid">
+      <div class="invitee-col">
+        <p class="invitee-side">Keluarga Mempelai Wanita</p>
+        <ul class="invitee-list">
+          <li>Bpk. H. Soewarno <span class="alm">(Alm.)</span></li>
+          <li>Ibu Hj. Sumarni</li>
+          <li>Bpk. &amp; Ibu Wijaya Kusuma</li>
+          <li>Bpk. &amp; Ibu Hartono</li>
+          <li>Bpk. &amp; Ibu Lukman</li>
+        </ul>
+      </div>
+      <div class="invitee-col">
+        <p class="invitee-side">Keluarga Mempelai Pria</p>
+        <ul class="invitee-list">
+          <li>Bpk. H. Suparman <span class="alm">(Alm.)</span></li>
+          <li>Ibu Hj. Mariana</li>
+          <li>Bpk. &amp; Ibu Setiawan</li>
+          <li>Bpk. &amp; Ibu Handayani</li>
+          <li>Bpk. &amp; Ibu Pratama</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="invitee-footnote">
+      Beserta seluruh sanak saudara, sahabat, dan handai taulan yang tidak dapat kami sebutkan satu per satu.
+    </p>
+
+    <div class="monogram-sm">S &amp; S</div>
+  </article>
+
+  <!-- ===== COVER PANEL (right half of outer sheet) ===== -->
+  <article class="panel cover" aria-label="Cover panel">
+    <svg class="wc-blob center-soft"><use href="#blob-pink"/></svg>
+    <svg class="wc-blob tr"><use href="#blob-rose"/></svg>
+    <svg class="wc-blob bl"><use href="#blob-rose"/></svg>
+    <svg class="ornament top-center" viewBox="0 0 240 80" preserveAspectRatio="xMidYMid meet" style="height: 19mm;">
+      <use href="#garland"/>
+    </svg>
+    <svg class="ornament bottom-center" viewBox="0 0 240 80" preserveAspectRatio="xMidYMid meet" style="height: 19mm;">
+      <use href="#garland"/>
+    </svg>
+
+    <p class="kicker">The Wedding Of</p>
+
+    <h1 class="couple">
+      Syaiful <span class="amp">&amp;</span> Sarah
+    </h1>
+
+    <div class="divider" aria-hidden="true">
+      <span class="dot"></span>
+    </div>
+
+    <p class="date-numeric">06 . 12 . 2026</p>
+
+    <div class="recipient-box" aria-label="Kotak nama tamu undangan">
+      <p class="recipient-label">Kepada Yth.</p>
+      <div class="recipient-line"></div>
+      <p class="recipient-honorific">Bapak / Ibu / Saudara/i</p>
+      <p class="recipient-place">di Tempat</p>
+    </div>
+  </article>
+</section>
+
+
+<!-- =====================================================
+     SHEET 2 — INNER (printed on side B of paper)
+     [INSIDE-LEFT panel] | [INSIDE-RIGHT panel]
+     ===================================================== -->
+<div class="sheet-label">Sheet 2 · Inner Side (Greeting · Event Details)</div>
+<section class="sheet sheet-inner" aria-label="Sheet 2 inner (greeting and details)">
+  <span class="fold-line" aria-hidden="true"></span>
+
+  <!-- ===== INSIDE-LEFT PANEL (greeting + couple) ===== -->
+  <article class="panel inside-left" aria-label="Inside left panel">
+    <svg class="wc-blob tl"><use href="#blob-rose"/></svg>
+    <svg class="wc-blob br"><use href="#blob-pink"/></svg>
+    <svg class="ornament corner-tr"><use href="#corner-spray"/></svg>
+    <svg class="ornament corner-bl"><use href="#corner-spray"/></svg>
+
+    <p class="bismillah">Bismillāhirraḥmānirraḥīm</p>
+    <p class="intro">
+      Dengan memohon rahmat dan ridho Tuhan Yang Maha Esa, kami bermaksud menyelenggarakan pernikahan putra-putri kami
+    </p>
+
+    <div class="person">
+      <h2 class="name">Sarah</h2>
+      <p class="full">Siti Sarah</p>
+      <p class="parents-label">Putri dari</p>
+      <p class="parents">Bpk. R.M. Sholeh <span class="alm">(Alm.)</span><br>&amp; Ibu Muhani <span class="alm">(Almh.)</span></p>
+    </div>
+
+    <div class="ampersand">&amp;</div>
+
+    <div class="person">
+      <h2 class="name">Syaiful</h2>
+      <p class="full">Muhammad Nur Syaifullah</p>
+      <p class="parents-label">Putra dari</p>
+      <p class="parents">Bpk. Sarwi<br>&amp; Ibu Eka Purwanti</p>
+    </div>
+  </article>
+
+  <!-- ===== INSIDE-RIGHT PANEL (event details + QR Maps) ===== -->
+  <article class="panel inside-right" aria-label="Inside right panel">
+    <svg class="wc-blob tr"><use href="#blob-pink"/></svg>
+    <svg class="wc-blob bl"><use href="#blob-rose"/></svg>
+    <svg class="ornament corner-tl"><use href="#corner-spray"/></svg>
+    <svg class="ornament corner-br"><use href="#corner-spray"/></svg>
+
+    <p class="invite-line">
+      Yang Insyā Allāh akan dilaksanakan pada:
+    </p>
+
+    <div class="event-grid">
+      <div class="event-compact">
+        <h3 class="event-title-sm">Akad Nikah</h3>
+        <p class="event-date-sm">Minggu, 06 Desember 2026</p>
+        <p class="event-time-sm">09.00 WIB</p>
+      </div>
+      <div class="event-compact">
+        <h3 class="event-title-sm">Resepsi</h3>
+        <p class="event-date-sm">Minggu, 06 Desember 2026</p>
+        <p class="event-time-sm">11.00 — 14.00 WIB</p>
+      </div>
+    </div>
+
+    <p class="event-venue venue-main">Basecamp Konsep Depok</p>
+    <p class="event-address-main">
+      Cisalak Pasar, Kec. Cimanggis,<br>
+      Kota Depok, Jawa Barat 16452
+    </p>
+
+    <div class="soft-divider" aria-hidden="true"></div>
+
+    <p class="formal-closing">
+      Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak / Ibu / Saudara/i berkenan hadir dan memberikan doa restu.
+    </p>
+
+    <p class="wassalam">Wassalāmu'alaikum Wr. Wb.</p>
+
+    <!-- Sketsa denah lokasi (SVG hand-drawn style) - edit label/posisi sesuai patokan area sebenarnya -->
+    <div class="map-preview" aria-label="Sketsa denah lokasi venue">
+      <svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background subtle wash -->
+        <rect width="400" height="130" fill="#FBEEF1" opacity="0.35"/>
+
+        <!-- Road: Jl. Raya Bogor (main horizontal) -->
+        <g class="sketch-road">
+          <path d="M5,90 Q 100,88 200,92 T 395,90" fill="none" stroke="#C9A66B" stroke-width="7" stroke-linecap="round"/>
+          <path d="M5,90 Q 100,88 200,92 T 395,90" fill="none" stroke="#FAF3F0" stroke-width="1.2" stroke-dasharray="6 5"/>
+        </g>
+
+        <!-- Branch road: north going to venue area -->
+        <g class="sketch-road">
+          <path d="M210,90 Q 215,60 225,35" fill="none" stroke="#C9A66B" stroke-width="5" stroke-linecap="round"/>
+        </g>
+
+        <!-- Cross road near venue -->
+        <g class="sketch-road">
+          <path d="M120,35 Q 200,32 320,38" fill="none" stroke="#C9A66B" stroke-width="4" stroke-linecap="round"/>
+        </g>
+
+        <!-- Road labels -->
+        <text x="35" y="108" font-family="Cormorant Garamond, serif" font-size="11" font-style="italic" fill="#6B4F4F">Jl. Raya Bogor</text>
+        <text x="270" y="108" font-family="Cormorant Garamond, serif" font-size="9" font-style="italic" fill="#6B4F4F" opacity="0.7">→ ke Cibinong</text>
+        <text x="20" y="108" font-family="Cormorant Garamond, serif" font-size="9" font-style="italic" fill="#6B4F4F" opacity="0.7">Jakarta ←</text>
+        <text x="135" y="28" font-family="Cormorant Garamond, serif" font-size="9.5" font-style="italic" fill="#6B4F4F">Jl. Cisalak Raya</text>
+
+        <!-- Landmark: Pasar Cisalak -->
+        <g transform="translate(155, 38)">
+          <rect x="-8" y="-6" width="16" height="11" fill="#B8C4A8" stroke="#8B9A7A" stroke-width="0.6" rx="1"/>
+          <line x1="-8" y1="-1" x2="8" y2="-1" stroke="#8B9A7A" stroke-width="0.4"/>
+        </g>
+        <text x="155" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" fill="#6B4F4F" letter-spacing="0.5">Pasar Cisalak</text>
+
+        <!-- Landmark: Tol Cijago Exit (kiri atas) -->
+        <g transform="translate(60, 35)">
+          <path d="M-12,0 L-4,-6 L4,-6 L12,0 L4,6 L-4,6 Z" fill="#E8B4BC" stroke="#A75A66" stroke-width="0.6"/>
+          <text y="2" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#6B4F4F" font-weight="500">TOL</text>
+        </g>
+        <text x="60" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#6B4F4F" letter-spacing="0.3">Cijago Exit</text>
+
+        <!-- Venue marker (star + pin combo) -->
+        <g transform="translate(280, 35)">
+          <!-- Glow -->
+          <circle r="14" fill="#C97B84" opacity="0.18"/>
+          <!-- Star -->
+          <path d="M0,-10 L2.7,-3.3 L10,-3.1 L4.3,1.5 L6.5,9.5 L0,5 L-6.5,9.5 L-4.3,1.5 L-10,-3.1 L-2.7,-3.3 Z"
+                fill="#C97B84" stroke="#A75A66" stroke-width="0.8" stroke-linejoin="round"/>
+          <circle cx="0" cy="0" r="2" fill="#FAF3F0"/>
+        </g>
+        <text x="280" y="60" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="9.5" font-weight="500" fill="#A75A66" letter-spacing="0.4">Basecamp Konsep</text>
+        <text x="280" y="71" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="8" font-style="italic" fill="#A75A66" opacity="0.85">venue</text>
+
+        <!-- Compass (top-right corner) -->
+        <g transform="translate(375, 18)">
+          <circle r="8" fill="#FAF3F0" stroke="#C9A66B" stroke-width="0.6" opacity="0.85"/>
+          <path d="M0,-6 L2.2,2 L0,0.5 L-2.2,2 Z" fill="#C97B84"/>
+          <text y="-9" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="6" fill="#6B4F4F" font-style="italic">U</text>
+        </g>
+
+        <!-- Subtle floral accents -->
+        <g opacity="0.55">
+          <circle cx="20" cy="20" r="2" fill="#E8B4BC"/>
+          <circle cx="25" cy="25" r="1.2" fill="#C97B84"/>
+          <circle cx="380" cy="105" r="2" fill="#E8B4BC"/>
+          <circle cx="375" cy="110" r="1.2" fill="#C97B84"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="map-block">
+      <!-- QR Code Google Maps:
+           Asli URL : https://maps.app.goo.gl/CMCuqAuoe93w5BvXA?g_st=aw -->
+      <img class="qr-code"
+           src="https://api.qrserver.com/v1/create-qr-code/?data=https%3A%2F%2Fmaps.app.goo.gl%2FCMCuqAuoe93w5BvXA%3Fg_st%3Daw&size=300x300&color=6B4F4F&bgcolor=FAF3F0&qzone=2&format=svg"
+           alt="QR Code Google Maps Lokasi">
+      <p class="qr-caption">Scan untuk Petunjuk Lokasi</p>
+    </div>
+  </article>
+</section>
+
+</body>
+</html>
