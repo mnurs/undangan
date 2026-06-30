@@ -326,8 +326,7 @@ body {
 .panel.back {
   background: var(--cream);
   justify-content: flex-start;
-  padding-top: 12mm;
-  padding-bottom: 10mm;
+  padding: 12mm 8mm 10mm;
 }
 .back .kicker-sm {
   font-family: var(--ff-serif);
@@ -341,13 +340,11 @@ body {
 }
 .back .invitee-merged {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(5, auto);
   grid-auto-flow: column;
-  justify-content: center;
-  gap: 0 6mm;
+  gap: 0 3mm;
   width: 100%;
-  max-width: 92mm;
   margin: 0 auto 4mm;
   padding: 0;
   list-style: decimal inside;
