@@ -340,14 +340,16 @@ body {
   margin: 0 0 3mm;
 }
 .back .invitee-merged {
-  column-count: 2;
-  column-gap: 6mm;
-  column-rule: 0.5px solid rgba(232, 180, 188, 0.5);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(5, auto);
+  grid-auto-flow: column;
+  gap: 0 6mm;
   width: 100%;
   max-width: 92mm;
   margin: 0 auto 4mm;
   padding: 0;
-  list-style-position: inside;
+  list-style: decimal inside;
   font-family: var(--ff-serif);
   font-size: 9pt;
   line-height: 1.5;
@@ -357,9 +359,6 @@ body {
 .back .invitee-merged li {
   margin: 0 0 0.5mm;
   padding-left: 1mm;
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
-  page-break-inside: avoid;
 }
 .back .invitee-merged li::marker {
   color: var(--rose-dark);
