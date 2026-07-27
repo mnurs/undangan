@@ -341,7 +341,7 @@ body {
 .back .invitee-merged {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(5, auto);
+  grid-template-rows: repeat(6, auto);
   grid-auto-flow: column;
   gap: 0 3mm;
   width: 100%;
