@@ -341,18 +341,20 @@ body {
 .back .invitee-merged {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(6, auto);
-  grid-auto-flow: column;
   gap: 0 3mm;
   width: 100%;
   margin: 0 auto 4mm;
   padding: 0;
-  list-style: decimal inside;
   font-family: var(--ff-serif);
   font-size: 9pt;
   line-height: 1.5;
   color: var(--brown);
   text-align: left;
+}
+.back .invitee-merged .invitee-col {
+  margin: 0;
+  padding: 0;
+  list-style: decimal inside;
 }
 .back .invitee-merged li {
   margin: 0 0 0.5mm;
