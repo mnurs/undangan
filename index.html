@@ -302,12 +302,10 @@
 
     <p class="date-numeric">06 . 12 . 2026</p>
 
-    <div class="recipient-box" aria-label="Kotak nama tamu undangan">
-      <p class="recipient-label">Kepada Yth.</p>
-      <div class="recipient-line"></div>
-      <p class="recipient-honorific">Bapak / Ibu / Saudara/i</p>
-      <p class="recipient-place">di Tempat</p>
-    </div>
+    <p class="recipient-label">Kepada Yth.</p>
+    <p class="recipient-honorific">Bapak/Ibu/ Saudara/i</p>
+    <div class="recipient-box" aria-label="Kotak nama tamu undangan"></div>
+    <p class="recipient-apology">Mohon maaf apabila ada kesalahan<br/>dalam penulisan nama/gelar</p>
   </article>
 </section>
 
@@ -441,6 +439,20 @@
     </div>
   </article>
 </section>
+
+<script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var name = (params.get('to') || '').trim();
+    if (!name) return;
+    var box = document.querySelector('.cover .recipient-box');
+    if (!box) return;
+    var p = document.createElement('p');
+    p.className = 'recipient-name';
+    p.textContent = name;
+    box.appendChild(p);
+  })();
+</script>
 
 </body>
 </html>

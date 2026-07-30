@@ -194,6 +194,8 @@ body {
 .panel.cover {
   background: var(--cream);
 }
+.cover .ornament.top-center { top: -6mm; }
+.cover .ornament.bottom-center { bottom: -6mm; }
 .cover .kicker {
   font-family: var(--ff-serif);
   font-style: italic;
@@ -262,14 +264,18 @@ body {
 
 /* Recipient box ("Kepada Yth.") on Cover */
 .cover .recipient-box {
-  margin: 5mm auto 0;
-  padding: 3mm 4mm 3.5mm;
+  margin: 3mm auto 0;
+  padding: 2mm 4mm;
   width: 70mm;
   max-width: 80%;
+  min-height: 18mm;
   border-top: 0.6px solid var(--gold);
   border-bottom: 0.6px solid var(--gold);
   position: relative;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .cover .recipient-box::before,
 .cover .recipient-box::after {
@@ -296,30 +302,41 @@ body {
   font-size: 10pt;
   letter-spacing: 1.5px;
   color: var(--rose-dark);
-  margin: 0 0 2mm;
-}
-.cover .recipient-line {
-  width: 100%;
-  height: 7mm;
-  border-bottom: 0.7px solid var(--rose-soft);
-  margin: 0 0 1.5mm;
+  text-align: center;
+  margin: 5mm 0 1mm;
 }
 .cover .recipient-honorific {
-  font-family: var(--ff-sans);
-  font-style: italic;
-  font-size: 7pt;
-  letter-spacing: 1.2px;
-  color: var(--brown);
-  margin: 0;
-  opacity: .75;
-}
-.cover .recipient-place {
   font-family: var(--ff-serif);
   font-style: italic;
-  font-size: 9pt;
-  letter-spacing: 1px;
+  font-size: 10pt;
+  letter-spacing: 1.5px;
   color: var(--rose-dark);
-  margin: 2mm 0 0;
+  text-align: center;
+  margin: 0 0 2mm;
+}
+.cover .recipient-name {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 13pt;
+  line-height: 1.25;
+  letter-spacing: 0.8px;
+  color: var(--rose-deep);
+  margin: 0;
+  word-break: break-word;
+}
+.cover .recipient-apology {
+  font-family: var(--ff-sans);
+  font-style: italic;
+  font-size: 6.5pt;
+  line-height: 1.35;
+  letter-spacing: 0.6px;
+  color: var(--brown);
+  opacity: .7;
+  text-align: center;
+  width: 70mm;
+  max-width: 80%;
+  margin: 3.5mm auto 0;
 }
 
 /* ---------- BACK panel — Turut Mengundang ---------- */
