@@ -455,17 +455,10 @@ body {
 }
 .inside-left .person .name {
   font-family: var(--ff-script);
-  font-size: 28pt;
+  font-size: 22pt;
   color: var(--rose-deep);
-  line-height: 1;
-  margin: 0 0 1mm;
-}
-.inside-left .person .full {
-  font-family: var(--ff-serif);
-  font-size: 10pt;
-  color: var(--brown);
-  margin: 1mm 0 1.5mm;
-  font-style: italic;
+  line-height: 1.05;
+  margin: 0 0 2mm;
 }
 .inside-left .person .parents-label {
   font-family: var(--ff-sans);
