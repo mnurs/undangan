@@ -343,7 +343,7 @@ body {
 .panel.back {
   background: var(--cream);
   justify-content: flex-start;
-  padding: 12mm 8mm 10mm;
+  padding: 10mm 8mm 7mm;
 }
 .back .kicker-sm {
   font-family: var(--ff-serif);
@@ -360,11 +360,11 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 0 3mm;
   width: 100%;
-  margin: 0 auto 4mm;
+  margin: 0 auto 2mm;
   padding: 0;
   font-family: var(--ff-serif);
   font-size: 9pt;
-  line-height: 1.5;
+  line-height: 1.4;
   color: var(--brown);
   text-align: left;
 }
@@ -395,14 +395,14 @@ body {
   font-family: var(--ff-serif);
   font-style: italic;
   font-size: 8.5pt;
-  line-height: 1.45;
+  line-height: 1.4;
   color: var(--brown);
   max-width: 82mm;
-  margin: 2mm auto 3mm;
+  margin: 1mm auto 2mm;
   opacity: .85;
 }
 .back .back-quote {
-  margin: 2mm auto 3mm;
+  margin: 1mm auto 2mm;
   max-width: 86mm;
   text-align: center;
   position: relative;
@@ -416,8 +416,8 @@ body {
   margin: 0 auto;
   background: linear-gradient(90deg, transparent, var(--rose-soft) 50%, transparent);
 }
-.back .back-quote::before { margin-bottom: 2.5mm; }
-.back .back-quote::after  { margin-top: 2.5mm; }
+.back .back-quote::before { margin-bottom: 1.5mm; }
+.back .back-quote::after  { margin-top: 1.5mm; }
 .back .back-quote-text {
   font-family: var(--ff-serif);
   font-style: italic;
