@@ -343,7 +343,7 @@ body {
 .panel.back {
   background: var(--cream);
   justify-content: flex-start;
-  padding: 10mm 8mm 7mm;
+  padding: 10mm 8mm 10mm;
 }
 .back .kicker-sm {
   font-family: var(--ff-serif);
@@ -372,6 +372,13 @@ body {
   margin: 0;
   padding: 0;
   list-style: decimal inside;
+}
+.back .invitee-merged .invitee-col:nth-child(2) {
+  font-size: 8pt;
+  line-height: 1.25;
+}
+.back .invitee-merged .invitee-col:nth-child(2) li::marker {
+  font-size: 7.5pt;
 }
 .back .invitee-merged li {
   margin: 0 0 0.5mm;
@@ -441,7 +448,7 @@ body {
   font-family: var(--ff-script);
   font-size: 26pt;
   color: var(--rose-deep);
-  margin: 0;
+  margin: 4mm 0 4mm;
   line-height: 1;
 }
 
